@@ -163,6 +163,11 @@ body {
   border-radius: 50%;
 }
 
+.tigaDLink {
+  text-decoration: none;
+  color: black;
+}
+
 @media only screen and (max-width: 784px) {
   #myCanvas {
     width: 100%;
