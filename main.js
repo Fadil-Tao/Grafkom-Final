@@ -33,16 +33,24 @@ let grid = new THREE.GridHelper(100, 20, 0x0a0a0a0, 0x0a0a0a0);
 grid.position.set(0, -0.5, 0);
 scene.add(grid);
 
-let bgeo = new THREE.BoxGeometry(1, 1, 1);
-let bmat = new THREE.MeshStandardMaterial({
-  color: 0x00ff00,
-  wireframe: false,
+const cubeSize = 1;
+
+const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load(
+  "https://upload.wikimedia.org/wikipedia/commons/9/94/Osama_bin_Laden_in_2001_%28cropped%29.jpg"
+);
+
+const material = new THREE.MeshStandardMaterial({
+  map: texture, 
+
 });
-let cube = new THREE.Mesh(bgeo, bmat);
+
+const cube = new THREE.Mesh(cubeGeometry, material);
+
 scene.add(cube);
 
-// Reflector
-// Create a reflective surface (mirror) using Reflector.js
 const geometry = new THREE.PlaneGeometry(5, 5);
 const verticalMirror = new Reflector(geometry, {
   clipBias: 0.003,
