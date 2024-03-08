@@ -43,8 +43,7 @@ const texture = textureLoader.load(
 );
 
 const material = new THREE.MeshStandardMaterial({
-  map: texture, 
-
+  map: texture,
 });
 
 const cube = new THREE.Mesh(cubeGeometry, material);
@@ -56,7 +55,7 @@ const verticalMirror = new Reflector(geometry, {
   clipBias: 0.003,
   textureWidth: window.innerWidth * window.devicePixelRatio,
   textureHeight: window.innerHeight * window.devicePixelRatio,
-  color: 0xc1cbcb,
+  color: 0x849595,
 });
 scene.add(verticalMirror);
 
